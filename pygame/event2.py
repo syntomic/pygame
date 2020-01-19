@@ -41,8 +41,3 @@ while True:
         screen.blit(background, (x,y))
         #在新的位置上画图
         pygame.display.update()
-
-ValueError: invalid literal for int() with base 10: '321-'
-Line 3 in reverse (Solution.py)
-Line 27 in _driver (Solution.py)
-Line 40 in <module> (Solution.py)
