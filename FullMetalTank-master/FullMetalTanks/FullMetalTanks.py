@@ -324,7 +324,7 @@ class Bullet():
             nextrect = pygame.Rect(cur_x, cur_y - self.speed * speedratio, 6, 8)
             if self.rect.top - self.speed < 0:
                 return None
-            return
+            return nextrect
         elif self.direction == self.DIR_RIGHT:
             nextrect = pygame.Rect(cur_x + self.speed * speedratio, cur_y, 6, 8)
             if self.rect.left > (416 - self.rect.width):
@@ -1243,7 +1243,7 @@ class Enemy(Tank):
 
     def getAttackPosition(self, player):
         """
-        return the  position where the AI is able to attack the enemy
+        return the position where the AI is able to attack the enemy
         if there are multiple position attackable, return the nearest one
         """
         playerX = player.rect.topleft[0]
@@ -1253,12 +1253,13 @@ class Enemy(Tank):
         playerTuple = (playerX, playerY)
         nearest = (cur_x, cur_y)
         distance = self.getDistance(playerTuple, nearest)
+
         #up
         new_pos_up = (cur_x, cur_y-1)
 
-        while(new_pos_up[1] >= 0 and self.checkPos(new_pos_up)):
+        while (new_pos_up[1] >= 0 and self.checkPos(new_pos_up)):
             new_dis = self.getDistance(new_pos_up, playerTuple)
-            if( new_dis < distance):
+            if (new_dis < distance):
                 nearest = new_pos_up
                 distance = new_dis
             new_pos_up = (new_pos_up[0], new_pos_up[1]-1)
@@ -1267,7 +1268,7 @@ class Enemy(Tank):
         new_pos_right = (cur_x+1, cur_y)
         while(new_pos_right[0] <= (416 - 26) and self.checkPos(new_pos_right)):
             new_dis = self.getDistance(new_pos_right, playerTuple)
-            if(new_dis < distance):
+            if (new_dis < distance):
                 nearest = new_pos_right
                 distance = new_dis
             new_pos_right = (new_pos_right[0]+1, new_pos_right[1])

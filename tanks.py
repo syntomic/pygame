@@ -1050,10 +1050,11 @@ class Enemy(Tank):
 			else:
 				opposite_direction = direction - 2
 
-			if direction in [self.DIR_UP, self.DIR_RIGHT]:
+			'''if direction in [self.DIR_UP, self.DIR_RIGHT]:
 				opposite_direction = direction + 2
 			else:
-				opposite_direction = direction - 2
+				opposite_direction = direction - 2'''
+				
 			directions = all_directions
 			random.shuffle(directions)
 			directions.remove(opposite_direction)
@@ -1458,7 +1459,7 @@ class Game():
 		del gtimer.timers[:]
 
 		# set current stage to 0
-		self.stage = 31
+		self.stage = 34
 
 		self.animateIntroScreen()
 

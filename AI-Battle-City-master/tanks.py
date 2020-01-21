@@ -1978,6 +1978,7 @@ class Game():
 
         self.draw()
 
+
         #----------------------
         self.agent=ai.ai_agent()
 

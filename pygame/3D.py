@@ -59,7 +59,7 @@ def run():
             return star.x > 0
  
         # 星星跑出了画面，就删了它
-        stars = filter(on_screen, stars)
+        stars = list(filter(on_screen, stars))
  
         pygame.display.update()
  
